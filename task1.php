@@ -7,11 +7,7 @@ function makePins($p){
     $rechargePins = [];
     $r = 0;
     while($r < $p){
-        $pincomplete = "";
-        for ($i=0; $i < 3; $i++) { 
-            $pin = rand(10000,99999);
-            $pincomplete.=$pin;
-        }
+        $pincomplete = rand(100000000000000,999999999999999);
         array_push($rechargePins,$pincomplete);
         echo "<br>15 digit recharge pin number ". $r+1 ." is $pincomplete";
         $r++;
