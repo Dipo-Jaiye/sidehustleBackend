@@ -1,0 +1,6 @@
+Cookie variables are used to track user information by the server and they are stored on the user's local machine.
+Anytime a new request is sent to that server, information from the cookie variables are sent along in order to identify the user.
+
+Session variables are temporary variables created on both the user end and the server end of an application.
+They are available to all pages of the application during that session. They are used for tracking identity information as well. 
+However, at the end of a session, they are always deleted and not stored anywhere.
