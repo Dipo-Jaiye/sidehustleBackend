@@ -1,7 +1,7 @@
 <?php
 //This is a registration form for an internship
 echo "<h1>Internship Registration Form</h1>";
-echo "<h4 style=\"color:red\">Fill out all fields</h4>";
+
 
 //Defining the error message and form input variables
 $fnameErr = $lnameErr = $emailErr = $phoneErr = $trackErr = "";
@@ -52,9 +52,22 @@ function clean($val){
     $val = htmlspecialchars($val);
     return $val;
 }
+
+//Display input only after submission if there are no errors
+if($_SERVER["REQUEST_METHOD"] == "POST" && empty($fnameErr) && empty($lnameErr) && empty($emailErr) && empty($phoneErr) && empty($trackErr)):
+    echo "<h4>Thank You $fname!</h4>";
+    echo "Your registration details are:<br><br>";
+    echo "Name: $fname $lname<br><br>";
+    echo "Email: $email<br><br>";
+    echo "Phone Number: $phone<br><br>";
+    $trackName = ["front-end"=>"Frontend Web Development","back-end"=>"Backend Web Development","cloud-dev"=>"Cloud Application Development","mobile"=>"Mobile Application Development"];
+    echo "Track: $trackName[$track]<br><br>";
+    echo "Click <a href=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\">here</a> to go back to the form";
+
+else:
+    //Display the form
+    echo "<h4 style=\"color:red\">Fill out all fields</h4>";
 ?>
-
-
 <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> method="post">
     First Name: <input type="text" name="fname" pattern="^[a-zA-Z-']*$" value="<?php echo $fname;?>"><span style="color:red"><?php echo $fnameErr;?></span><br><br>
 
@@ -76,15 +89,4 @@ function clean($val){
 
     <input type="submit" value=" Register "><br><br>
 </form>
-
-<?php
-//Display input only after submission if there are no errors
-if($_SERVER["REQUEST_METHOD"] == "POST" && empty($fnameErr) && empty($lnameErr) && empty($emailErr) && empty($phoneErr) && empty($trackErr)) {
-    echo "<h4>Your Input:</h4>";
-    echo "Name: $fname $lname<br><br>";
-    echo "Email: $email<br><br>";
-    echo "Phone Number: $phone<br><br>";
-    $trackName = ["front-end"=>"Frontend Web Development","back-end"=>"Backend Web Development","cloud-dev"=>"Cloud Application Development","mobile"=>"Mobile Application Development"];
-    echo "Track: $trackName[$track]<br><br>";
-}
-?>
+<?php endif;?>
