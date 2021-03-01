@@ -69,13 +69,13 @@ else:
     echo "<h4 style=\"color:red\">Fill out all fields</h4>";
 ?>
 <form action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> method="post">
-    First Name: <input type="text" name="fname" pattern="^[a-zA-Z-']*$" value="<?php echo $fname;?>"><span style="color:red"><?php echo $fnameErr;?></span><br><br>
+    First Name: <input type="text" name="fname" pattern="^[a-zA-Z-']*$" value="<?php echo $fname;?>" placeholder="First Name"><span style="color:red"><?php echo $fnameErr;?></span><br><br>
 
-    Last Name: <input type="text" name="lname" pattern="^[a-zA-Z-']*$" value="<?php echo $lname;?>"><span style="color:red"><?php echo $lnameErr;?></span><br><br>
+    Last Name: <input type="text" name="lname" pattern="^[a-zA-Z-']*$" value="<?php echo $lname;?>" placeholder="Last Name"><span style="color:red"><?php echo $lnameErr;?></span><br><br>
 
-    Email: <input type="email" name="email" value="<?php echo $email;?>"><span style="color:red"><?php echo $emailErr;?></span><br><br>
+    Email: <input type="email" name="email" value="<?php echo $email;?>" placeholder="Email Address"><span style="color:red"><?php echo $emailErr;?></span><br><br>
 
-    Phone Number: <input type="tel" name="phone" pattern="0{1}[0-9]{10}" value="<?php echo $phone;?>"><span style="color:red"><?php echo $phoneErr;?></span><br><br>
+    Phone Number: <input type="tel" name="phone" pattern="0{1}[0-9]{10}" value="<?php echo $phone;?>" placeholder="Phone number"><span style="color:red"><?php echo $phoneErr;?></span><br><br>
 
     Choose your desired track: <br><span style="color:red"><?php echo $trackErr;?></span><br>
 
